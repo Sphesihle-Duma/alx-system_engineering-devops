@@ -1,2 +1,2 @@
 #!/bn/bash
-sort /tmp/0x02/list | uniq -u
+sort | uniq -u
