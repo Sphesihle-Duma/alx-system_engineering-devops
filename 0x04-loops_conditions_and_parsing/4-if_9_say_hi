@@ -2,13 +2,13 @@
 #Bash script that displays 10 times
 #but for the 9th iteration displays hi
 #on a newline
-i=0
-while [ $i -le 9 ]
+i=1
+while [ $i -le 10 ]
 do
     echo "Best School"
-    if [ $i -eq 8 ]
+    if [ $i -eq 9 ]
     then
        echo "Hi"
     fi
-    i=$(( $i + 1 ))
+    ((i + 1))
 done
