@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#A script that dsiplays lines containg ther bash
+ps -auxf | grep bash
