@@ -8,7 +8,7 @@ do
 		echo "Best School"
 		echo "Hi"
 	else
-		echo "Hi"
+		echo "Best School"
 	fi
 	count=$(($count + 1))
 done
