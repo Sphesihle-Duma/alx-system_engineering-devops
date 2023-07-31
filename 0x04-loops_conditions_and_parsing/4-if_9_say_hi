@@ -1,14 +1,14 @@
 #!/usr/bin/bash
 #Bash script that displays 10 times
-i=1
-while [ $i -le 10 ]
+count=1
+while [ $count -le 10 ]
 do
-    if [ $i -eq 9 ]
-    then
-	echo "Best School"
-        echo "Hi"
-    else
-	echo "Best School"
-    fi
-    i=$((i + 1))
+	if [ $count -eq 9 ]
+	then
+		echo "Best School"
+		echo "Hi"
+	else
+		echo "Hi"
+	fi
+	count=$(($count + 1))
 done
