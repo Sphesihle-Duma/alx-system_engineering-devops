@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 #Bash script that displays 10 times
 count=1
 while [ $count -le 10 ]
