@@ -1,0 +1,129 @@
+Infrastructure Components:
+
+Server:
+A physical or virtual machine that hosts the entire web infrastructure.
+Runs the operating system and various software components.
+
+Web Server (Nginx):
+Installed on the server.
+Listens for incoming HTTP requests on port 80.
+Acts as the first point of contact for users' requests.
+Routes requests to the appropriate destination.
+Serves static content (e.g., HTML, CSS, JavaScript files)
+
+Application Server:
+Also installed on the server.
+Handles dynamic content generation and processing.
+Executes the code base of the website/application.
+Communicates with the database to retrieve and manipulate data.
+Responds to the web server with processed data.
+
+Application Files (Code Base):
+
+Contains the website/application's logic and functionality.
+Written in programming languages such as Python, PHP, Ruby, etc
+
+Database (MySQL):
+
+Installed on the server or a separate server.
+Manages and stores data related to the website/application.
+Used to store user information, content, settings, etc.
+
+Domain Name (www.foobar.com):
+
+Acts as a user-friendly name for the server's IP address (8.8.8.8).
+Resolves to the server's IP address using DNS.
+
+DNS Record for www:
+
+A CNAME (Canonical Name) record pointing "www.foobar.com" to the main domain name "foobar.com."
+Resolves the www subdomain to the same IP address as the main domain.
+
+Communication Flow:
+
+User's browser sends an HTTP request to the server's IP address (8.8.8.8) via port 80.
+
+Nginx web server receives the request and processes it.
+
+Nginx forwards the request to the application server.
+
+Application server processes the request using the code base and queries the database if needed.
+
+Application server sends the processed data as an HTTP response back to Nginx.
+
+Nginx sends the response to the user's browser.
+
+
+One-Server Web Infrastructure Design:
+
+User Accessing the Website:
+
+A user types "www.foobar.com" in their web browser.
+The browser queries a DNS (Domain Name System) server to resolve the domain name "www.foobar.com" to an IP address.
+The DNS server responds with the IP address 8.8.8.8.
+Infrastructure Components:
+
+Server:
+
+A physical or virtual machine that hosts the entire web infrastructure.
+Runs the operating system and various software components.
+Web Server (Nginx):
+
+Installed on the server.
+Listens for incoming HTTP requests on port 80.
+Acts as the first point of contact for users' requests.
+Routes requests to the appropriate destination.
+Serves static content (e.g., HTML, CSS, JavaScript files).
+Application Server:
+
+Also installed on the server.
+Handles dynamic content generation and processing.
+Executes the code base of the website/application.
+Communicates with the database to retrieve and manipulate data.
+Responds to the web server with processed data.
+Application Files (Code Base):
+
+Contains the website/application's logic and functionality.
+Written in programming languages such as Python, PHP, Ruby, etc.
+Database (MySQL):
+
+Installed on the server or a separate server.
+Manages and stores data related to the website/application.
+Used to store user information, content, settings, etc.
+Domain Name (www.foobar.com):
+
+Acts as a user-friendly name for the server's IP address (8.8.8.8).
+Resolves to the server's IP address using DNS.
+DNS Record for www:
+
+A CNAME (Canonical Name) record pointing "www.foobar.com" to the main domain name "foobar.com."
+Resolves the www subdomain to the same IP address as the main domain.
+Communication Flow:
+
+User's browser sends an HTTP request to the server's IP address (8.8.8.8) via port 80.
+
+Nginx web server receives the request and processes it.
+
+Nginx forwards the request to the application server.
+
+Application server processes the request using the code base and queries the database if needed.
+
+Application server sends the processed data as an HTTP response back to Nginx.
+
+Nginx sends the response to the user's browser.
+
+Issues with the Infrastructure:
+
+Single Point of Failure (SPOF):
+
+The entire infrastructure relies on a single server.
+If the server fails, the website/application becomes unavailable.
+Downtime During Maintenance:
+
+When deploying new code or performing maintenance, the web server (Nginx) may need to be restarted.
+During this time, the website may be unavailable to users.
+
+Scalability Limitations:
+
+The infrastructure cannot handle high traffic levels efficiently.
+As the incoming traffic increases, the server may become overloaded, causing slow response times or downtime.

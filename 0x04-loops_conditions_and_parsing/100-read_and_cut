@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#A script that reads the /etc/passwd
+while [ read -r /etc/passwd ]
+do
+echo "line read"
+done
