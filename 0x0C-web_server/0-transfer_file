@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# A script that copies a file to a remote server
+if [ $# -le 3 ]
+then
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+	exit 1
+fi
+FILE_PATH="$1"
+REMOTE_IP="$2"
+REMOTE_USERNAME="$3"
+SSH_KEY_PATH="$4"
+OPTION_STR="-o StrictHostKeyChecking=no"
+scp "$OPTION_STR" -i "$SSH_KEY_PATH" "$FILE_PATH" "$REMOTE_USERNAME@$REMOTE_IP:~/" 
