@@ -1,10 +1,10 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 
 # Install Nginx (if not already installed)
 sudo apt-get update
 sudo apt-get -y install nginx
-
+sudo ufw allow 'Nginx HTTP'
 # Create a custom Nginx configuration file for the redirection
-echo "Hello World!" > sudo tee /var/www/html/index.nginx-debian.html
-sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com permanent;/" /etc/nginx/sites-available/default
+echo "Hello World!" | tee /var/www/html/index.nginx-debian.html
+sed -i "37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 sudo service nginx start
