@@ -1,0 +1,32 @@
+Before I start explaining what really happens when you type https://www.google.com in your browser and press enter. I would love to give a brief definition of the internet. Well, the internet is a vast global network of interconnected computers and devices that communicate with each other using a standardized set of protocols. This means a device/computer must be a part of this global network in order to communicate with other devices which are part of this huge network. We are good to go now champs!!!
+
+Let’s talk about the browser now. A web browser is a software application that allows users to access and navigate the internet. It serves as a gateway for viewing websites, web pages and other online content. Okay we are going to dive deep on what happens behind the scene.
+
+As we go deeper now I would like to explain the crucial parts found in the URL, in this case we have https://www.google.com. The “https” is a secure version of the HTTP protocol. HTTP is the standard protocol used for transferring data between a user’s web browser and a website/web server. In simple terms, HTTP is a set of rules that the browser and web server need to follow to communicate effectively. in the URL provided above we use HTTPS this means that the data to be exchanged between the browser and web server must be encrypted and secured, we revisit this as we go along.
+
+The “www” part in this case is a subdomain often used to denote the World Wide Web. If you don't know what the domain name is, don't worry; the explanation will be provided shortly. The “google.com” is the domain name. It serves as a unique address for a website, allowing the browser to locate the web server that hosts Google’ content. If you are wondering what this unique address is, don't worry in the next section your question will be answered.
+
+Every device connected to the internet must have a unique address this address is called IP address. In simple terms, It is the physical address of the device. IP (internet protocol) is responsible for addressing and routing. This happens at network layer of the OSI model. You can manually assign an IP address to the device and creating routing tables (This is beyond the scope of this article).
+
+So when you type the URL mentioned above, the browser running on the device connected to the internet. The browser sends a request to the DNS server to look for the unique address(IP address) of the web server that hosts Google’s content. The DNS server returns the address of the web server to the browser, at this stage the web server can connect to a web server.
+
+Yes, the browser is ready to connect to the Google’s web browser. however if the web browser is behind a firewall. It is up to the firewall to decide whether it allows the browser to send a request or not. A firewall can be a network security device or software application designed to monitor and control incoming and outgoing network traffic. In this case if outgoing rules configured on the firewall allow the browser to send a request, then the request will be sent to Google’s web browser.
+
+Now let’s talk about how this request is transported. First, let’s take a deep look at how the connection is established between the browser and web server. Remember the DNS server returned the IP address (physical address) of Google’s web server. This means the web server can be reached and the IP (Internet protocol) can figure out the shortest path for packets to be routed correctly. However how does these two communicating software know if the packets reached the intended destination? That’s where TCP (transmission control protocol) comes in. Let’s discuss that in the next section.
+
+Remember before data transfer begins, a connection must be established between the web browser and Google’s web server. This is done through a three-step handshake:
+
+The browser sends a “SYN” (synchronize) packet to the web server to initiate the connection.
+The web server acknowledges the SYN packet with “SYN-ACK” packet.
+The browser then acknowledges the SYN-ACK packet. At this point, the TCP connection is established.
+Done with TCP connection remember the URL included “HTTPS” now the HTTPS handshake within TCP connection begins:
+
+The browser sends a “ClientHello” message, indicating its support for secure communication and specifying encryption algorithms.
+The web server responds with a “ServerHello” message, selecting an encryption method from the client’s list, and its and providing its digital certificate.
+The browser receives the “ServerHello” message and verifies the server’s certificate.
+The browser generates a random “pre-master secret”, encrypts it with the web server public key (from the server’s certificate), and sends it back to the server.
+The server decrypts the pre-master secret and both client and server independently derive the shared secret encryption key for the session.
+The handshake concludes with both browser and server sending “Finished” messages to confirm the establishment of a secure session.
+Yes, everything now is all good the browser can send a request and get a response. Since there are billions of users who use Google, how does then Google serves all of the users? They use load-balancers to distribute the traffic evenly. They replicate their servers. They also host their business logic in application servers which is responsible to communicate with their databases.
+
+Thank you all.
