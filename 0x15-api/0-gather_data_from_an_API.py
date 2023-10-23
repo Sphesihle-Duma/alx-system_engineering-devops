@@ -25,4 +25,4 @@ if __name__ == "__main__":
     total = len(todo_list)
     print(f"Employee {emp_name} is done with tasks({num_c_tasks}/{total}):")
     for task in completed_tasks:
-        print(f"\t{task['title']}")
+        print(f"\t {task['title']}")
