@@ -13,10 +13,12 @@ if __name__ == "__main__":
     res = requests.get(user)
     json_o = res.json()
     name = json_o.get('username')
+    print(name)
 
     todos = '{}todos?userId={}'.format(url, userid)
     res = requests.get(todos)
     tasks = res.json()
+    print(tasks)
     l_task = []
     for task in tasks:
         dict_task = {"task": task.get('title'),
